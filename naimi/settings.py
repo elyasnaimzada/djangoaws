@@ -25,7 +25,7 @@ SECRET_KEY = 'k!1nqr%$_b+rs+khikr18!)gq#*71b3(8rlpm-2tbn$uk)e$s4'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['ec2-13-211-228-136.ap-southeast-2.compute.amazonaws.com']
 
 
 # Application definition
@@ -76,17 +76,11 @@ WSGI_APPLICATION = 'naimi.wsgi.application'
 
 DATABASES = {
     'default': {
-    'ENGINE': 'django.db.backends.mysql',
-    'NAME': 'sms',
-    'USER': 'root',
-    'PASSWORD': '123456789',
-    'HOST': 'localhost',
-    'PORT': '',
-    'OPTIONS': {
-    'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
 }
-}
-}
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
